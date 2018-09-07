@@ -314,16 +314,7 @@ func Invoke(inv Invocation) int {
 		}
 	}
 
-	// parse wants dir + filenames... arg
-	fnames := make([]string, 0, len(files))
-	for i := range files {
-		fnames = append(fnames, filepath.Base(files[i]))
-	}
-	if inv.Debug {
-		parse.EnableDebug()
-	}
-	debug.Println("parsing files")
-	info, err := parse.Package(inv.Dir, fnames)
+	info, err := parse.Package(inv.Dir)
 	if err != nil {
 		errlog.Println("Error parsing magefiles:", err)
 		return 1

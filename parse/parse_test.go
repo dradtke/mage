@@ -6,7 +6,7 @@ import (
 )
 
 func TestParse(t *testing.T) {
-	info, err := Package("./testdata", []string{"func.go", "command.go", "alias.go", "repeating_synopsis.go", "subcommands.go"})
+	info, err := Package("./testdata")
 	if err != nil {
 		t.Fatal(err)
 	}
